@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.Buttonlogin = new System.Windows.Forms.Button();
+            this.buttonlogin = new System.Windows.Forms.Button();
             this.listBoxPosts = new System.Windows.Forms.ListBox();
             this.Buttonpost = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.userPictureBox = new System.Windows.Forms.PictureBox();
             this.buttonSetStatus = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.listBoxPages = new System.Windows.Forms.ListBox();
             this.listBoxCheckins = new System.Windows.Forms.ListBox();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
@@ -43,17 +43,18 @@
             this.labelEvents = new System.Windows.Forms.LinkLabel();
             this.linkPages = new System.Windows.Forms.LinkLabel();
             this.linkCheckins = new System.Windows.Forms.LinkLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
-            // Buttonlogin
+            // buttonlogin
             // 
-            this.Buttonlogin.Location = new System.Drawing.Point(25, 22);
-            this.Buttonlogin.Name = "Buttonlogin";
-            this.Buttonlogin.Size = new System.Drawing.Size(109, 20);
-            this.Buttonlogin.TabIndex = 0;
-            this.Buttonlogin.Text = "Login";
-            this.Buttonlogin.UseVisualStyleBackColor = true;
+            this.buttonlogin.Location = new System.Drawing.Point(25, 22);
+            this.buttonlogin.Name = "buttonlogin";
+            this.buttonlogin.Size = new System.Drawing.Size(109, 26);
+            this.buttonlogin.TabIndex = 0;
+            this.buttonlogin.Text = "Login";
+            this.buttonlogin.UseVisualStyleBackColor = true;
+            this.buttonlogin.Click += new System.EventHandler(this.buttonlogin_Click_1);
             // 
             // listBoxPosts
             // 
@@ -73,13 +74,13 @@
             this.Buttonpost.TabIndex = 2;
             this.Buttonpost.Text = "Post";
             // 
-            // pictureBox1
+            // userPictureBox
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(162, 18);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(132, 30);
-            this.pictureBox1.TabIndex = 3;
-            this.pictureBox1.TabStop = false;
+            this.userPictureBox.Location = new System.Drawing.Point(162, 18);
+            this.userPictureBox.Name = "userPictureBox";
+            this.userPictureBox.Size = new System.Drawing.Size(132, 30);
+            this.userPictureBox.TabIndex = 3;
+            this.userPictureBox.TabStop = false;
             // 
             // buttonSetStatus
             // 
@@ -90,12 +91,12 @@
             this.buttonSetStatus.Text = "Post";
             this.buttonSetStatus.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // textBoxStatus
             // 
-            this.textBox1.Location = new System.Drawing.Point(388, 22);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(228, 20);
-            this.textBox1.TabIndex = 5;
+            this.textBoxStatus.Location = new System.Drawing.Point(388, 22);
+            this.textBoxStatus.Name = "textBoxStatus";
+            this.textBoxStatus.Size = new System.Drawing.Size(228, 20);
+            this.textBoxStatus.TabIndex = 5;
             // 
             // listBoxPages
             // 
@@ -194,16 +195,16 @@
             this.Controls.Add(this.listBoxFriends);
             this.Controls.Add(this.listBoxCheckins);
             this.Controls.Add(this.listBoxPages);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.buttonSetStatus);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.userPictureBox);
             this.Controls.Add(this.Buttonpost);
             this.Controls.Add(this.listBoxPosts);
-            this.Controls.Add(this.Buttonlogin);
+            this.Controls.Add(this.buttonlogin);
             this.Name = "FackebookApp";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.FackebookApp_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,12 +212,12 @@
 
         #endregion
 
-        private System.Windows.Forms.Button Buttonlogin;
+        private System.Windows.Forms.Button buttonlogin;
         private System.Windows.Forms.ListBox listBoxPosts;
         private System.Windows.Forms.Label Buttonpost;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox userPictureBox;
         private System.Windows.Forms.Button buttonSetStatus;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.ListBox listBoxPages;
         private System.Windows.Forms.ListBox listBoxCheckins;
         private System.Windows.Forms.ListBox listBoxFriends;
