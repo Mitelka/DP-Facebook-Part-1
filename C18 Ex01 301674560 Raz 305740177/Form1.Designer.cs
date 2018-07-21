@@ -1,4 +1,6 @@
-﻿namespace C18_Ex01_301674560_Raz_305740177
+﻿using System;
+
+namespace C18_Ex01_301674560_Raz_305740177
 {
     partial class FackebookApp
     {
@@ -35,14 +37,13 @@
             this.buttonSetStatus = new System.Windows.Forms.Button();
             this.textBoxStatus = new System.Windows.Forms.TextBox();
             this.listBoxPages = new System.Windows.Forms.ListBox();
-            this.listBoxCheckins = new System.Windows.Forms.ListBox();
             this.listBoxFriends = new System.Windows.Forms.ListBox();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.linkFriends = new System.Windows.Forms.LinkLabel();
             this.linkPosts = new System.Windows.Forms.LinkLabel();
             this.labelEvents = new System.Windows.Forms.LinkLabel();
             this.linkPages = new System.Windows.Forms.LinkLabel();
-            this.linkCheckins = new System.Windows.Forms.LinkLabel();
+            this.buttonFindMyLove = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.userPictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -78,7 +79,7 @@
             // 
             this.userPictureBox.Location = new System.Drawing.Point(162, 18);
             this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(132, 30);
+            this.userPictureBox.Size = new System.Drawing.Size(187, 74);
             this.userPictureBox.TabIndex = 3;
             this.userPictureBox.TabStop = false;
             // 
@@ -90,6 +91,7 @@
             this.buttonSetStatus.TabIndex = 4;
             this.buttonSetStatus.Text = "Post";
             this.buttonSetStatus.UseVisualStyleBackColor = true;
+            this.buttonSetStatus.Click += new System.EventHandler(this.buttonSetStatus_Click);
             // 
             // textBoxStatus
             // 
@@ -101,23 +103,16 @@
             // listBoxPages
             // 
             this.listBoxPages.FormattingEnabled = true;
-            this.listBoxPages.Location = new System.Drawing.Point(446, 228);
+            this.listBoxPages.Location = new System.Drawing.Point(25, 204);
             this.listBoxPages.Name = "listBoxPages";
             this.listBoxPages.Size = new System.Drawing.Size(188, 82);
             this.listBoxPages.TabIndex = 6;
-            // 
-            // listBoxCheckins
-            // 
-            this.listBoxCheckins.FormattingEnabled = true;
-            this.listBoxCheckins.Location = new System.Drawing.Point(25, 180);
-            this.listBoxCheckins.Name = "listBoxCheckins";
-            this.listBoxCheckins.Size = new System.Drawing.Size(170, 82);
-            this.listBoxCheckins.TabIndex = 7;
+            this.listBoxPages.SelectedIndexChanged += new System.EventHandler(this.listBoxPages_SelectedIndexChanged);
             // 
             // listBoxFriends
             // 
             this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(25, 72);
+            this.listBoxFriends.Location = new System.Drawing.Point(25, 98);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(139, 69);
             this.listBoxFriends.TabIndex = 8;
@@ -134,12 +129,13 @@
             // linkFriends
             // 
             this.linkFriends.AutoSize = true;
-            this.linkFriends.Location = new System.Drawing.Point(170, 72);
+            this.linkFriends.Location = new System.Drawing.Point(170, 98);
             this.linkFriends.Name = "linkFriends";
             this.linkFriends.Size = new System.Drawing.Size(246, 13);
             this.linkFriends.TabIndex = 10;
             this.linkFriends.TabStop = true;
             this.linkFriends.Text = "Fetch Friends (Only friends who also use this app..)";
+            this.linkFriends.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkFriends_LinkClicked);
             // 
             // linkPosts
             // 
@@ -150,6 +146,7 @@
             this.linkPosts.TabIndex = 11;
             this.linkPosts.TabStop = true;
             this.linkPosts.Text = "Fetch Posts";
+            this.linkPosts.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkPosts_LinkClicked);
             // 
             // labelEvents
             // 
@@ -160,40 +157,43 @@
             this.labelEvents.TabIndex = 12;
             this.labelEvents.TabStop = true;
             this.labelEvents.Text = "Fetch Events ";
+            this.labelEvents.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.labelEvents_LinkClicked);
             // 
             // linkPages
             // 
             this.linkPages.AutoSize = true;
-            this.linkPages.Location = new System.Drawing.Point(632, 228);
+            this.linkPages.Location = new System.Drawing.Point(219, 204);
             this.linkPages.Name = "linkPages";
             this.linkPages.Size = new System.Drawing.Size(99, 13);
             this.linkPages.TabIndex = 13;
             this.linkPages.TabStop = true;
             this.linkPages.Text = "Fetch Liked Pages ";
+            this.linkPages.Click += new System.EventHandler(this.linkPages_LinkClicked);
             // 
-            // linkCheckins
+            // buttonFindMyLove
             // 
-            this.linkCheckins.AutoSize = true;
-            this.linkCheckins.Location = new System.Drawing.Point(202, 180);
-            this.linkCheckins.Name = "linkCheckins";
-            this.linkCheckins.Size = new System.Drawing.Size(84, 13);
-            this.linkCheckins.TabIndex = 14;
-            this.linkCheckins.TabStop = true;
-            this.linkCheckins.Text = "Fetch Checkins ";
+            this.buttonFindMyLove.Font = new System.Drawing.Font("Miriam", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(177)));
+            this.buttonFindMyLove.ForeColor = System.Drawing.Color.Red;
+            this.buttonFindMyLove.Location = new System.Drawing.Point(448, 229);
+            this.buttonFindMyLove.Name = "buttonFindMyLove";
+            this.buttonFindMyLove.Size = new System.Drawing.Size(243, 42);
+            this.buttonFindMyLove.TabIndex = 14;
+            this.buttonFindMyLove.Text = "FindMyLove!";
+            this.buttonFindMyLove.UseVisualStyleBackColor = true;
+            this.buttonFindMyLove.Click += new System.EventHandler(this.buttonFindMyLove_Click);
             // 
             // FackebookApp
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1202, 450);
-            this.Controls.Add(this.linkCheckins);
+            this.ClientSize = new System.Drawing.Size(890, 325);
+            this.Controls.Add(this.buttonFindMyLove);
             this.Controls.Add(this.linkPages);
             this.Controls.Add(this.labelEvents);
             this.Controls.Add(this.linkPosts);
             this.Controls.Add(this.linkFriends);
             this.Controls.Add(this.listBoxEvents);
             this.Controls.Add(this.listBoxFriends);
-            this.Controls.Add(this.listBoxCheckins);
             this.Controls.Add(this.listBoxPages);
             this.Controls.Add(this.textBoxStatus);
             this.Controls.Add(this.buttonSetStatus);
@@ -210,6 +210,16 @@
 
         }
 
+        private void listBox4_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
         #endregion
 
         private System.Windows.Forms.Button buttonlogin;
@@ -219,14 +229,13 @@
         private System.Windows.Forms.Button buttonSetStatus;
         private System.Windows.Forms.TextBox textBoxStatus;
         private System.Windows.Forms.ListBox listBoxPages;
-        private System.Windows.Forms.ListBox listBoxCheckins;
         private System.Windows.Forms.ListBox listBoxFriends;
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.LinkLabel linkFriends;
         private System.Windows.Forms.LinkLabel linkPosts;
         private System.Windows.Forms.LinkLabel labelEvents;
         private System.Windows.Forms.LinkLabel linkPages;
-        private System.Windows.Forms.LinkLabel linkCheckins;
+        private System.Windows.Forms.Button buttonFindMyLove;
     }
 }
 
