@@ -2,7 +2,7 @@
 
 namespace C18_Ex01_301674560_Raz_305740177
 {
-    partial class FackebookApp
+    public partial class FackebookApp
     {
         /// <summary>
         /// Required designer variable.
@@ -19,6 +19,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -69,7 +70,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             // Buttonpost
             // 
             this.Buttonpost.AutoSize = true;
-            this.Buttonpost.Location = new System.Drawing.Point(348, 22);
+            this.Buttonpost.Location = new System.Drawing.Point(355, 22);
             this.Buttonpost.Name = "Buttonpost";
             this.Buttonpost.Size = new System.Drawing.Size(28, 13);
             this.Buttonpost.TabIndex = 2;
@@ -79,7 +80,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             // 
             this.userPictureBox.Location = new System.Drawing.Point(162, 18);
             this.userPictureBox.Name = "userPictureBox";
-            this.userPictureBox.Size = new System.Drawing.Size(187, 74);
+            this.userPictureBox.Size = new System.Drawing.Size(187, 88);
             this.userPictureBox.TabIndex = 3;
             this.userPictureBox.TabStop = false;
             // 
@@ -112,7 +113,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             // listBoxFriends
             // 
             this.listBoxFriends.FormattingEnabled = true;
-            this.listBoxFriends.Location = new System.Drawing.Point(25, 98);
+            this.listBoxFriends.Location = new System.Drawing.Point(25, 112);
             this.listBoxFriends.Name = "listBoxFriends";
             this.listBoxFriends.Size = new System.Drawing.Size(139, 69);
             this.listBoxFriends.TabIndex = 8;
@@ -129,7 +130,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             // linkFriends
             // 
             this.linkFriends.AutoSize = true;
-            this.linkFriends.Location = new System.Drawing.Point(170, 98);
+            this.linkFriends.Location = new System.Drawing.Point(170, 112);
             this.linkFriends.Name = "linkFriends";
             this.linkFriends.Size = new System.Drawing.Size(246, 13);
             this.linkFriends.TabIndex = 10;
@@ -238,4 +239,3 @@ namespace C18_Ex01_301674560_Raz_305740177
         private System.Windows.Forms.Button buttonFindMyLove;
     }
 }
-

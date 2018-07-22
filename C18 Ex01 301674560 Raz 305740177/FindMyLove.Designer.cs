@@ -1,6 +1,6 @@
 ﻿namespace C18_Ex01_301674560_Raz_305740177
 {
-    partial class FindMyLove
+    public partial class FindMyLove
     {
         /// <summary>
         /// Required designer variable.
@@ -17,6 +17,7 @@
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
@@ -33,16 +34,16 @@
             this.FemaleRadioButton = new System.Windows.Forms.RadioButton();
             this.maleRadioButton = new System.Windows.Forms.RadioButton();
             this.ageRangeLabel = new System.Windows.Forms.Label();
-            this.trackBar1 = new System.Windows.Forms.TrackBar();
-            this.trackBar2 = new System.Windows.Forms.TrackBar();
+            this.fromTrack = new System.Windows.Forms.TrackBar();
+            this.ToTrackBar = new System.Windows.Forms.TrackBar();
             this.maxAgeLabel = new System.Windows.Forms.Label();
             this.minAgeLabe = new System.Windows.Forms.Label();
             this.fromRangeChosen = new System.Windows.Forms.Label();
             this.maxRangeChosen = new System.Windows.Forms.Label();
             this.searchButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.profilePic)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTrack)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToTrackBar)).BeginInit();
             this.SuspendLayout();
             // 
             // profilePic
@@ -73,6 +74,7 @@
             this.FemaleRadioButton.TabStop = true;
             this.FemaleRadioButton.Text = "Female";
             this.FemaleRadioButton.UseVisualStyleBackColor = true;
+            this.FemaleRadioButton.CheckedChanged += new System.EventHandler(this.FemaleRadioButton_CheckedChanged);
             // 
             // maleRadioButton
             // 
@@ -85,6 +87,7 @@
             this.maleRadioButton.TabStop = true;
             this.maleRadioButton.Text = "Male";
             this.maleRadioButton.UseVisualStyleBackColor = true;
+            this.maleRadioButton.CheckedChanged += new System.EventHandler(this.maleRadioButton_CheckedChanged);
             // 
             // ageRangeLabel
             // 
@@ -96,19 +99,21 @@
             this.ageRangeLabel.TabIndex = 4;
             this.ageRangeLabel.Text = "Age range:";
             // 
-            // trackBar1
+            // fromTrack
             // 
-            this.trackBar1.Location = new System.Drawing.Point(15, 193);
-            this.trackBar1.Name = "trackBar1";
-            this.trackBar1.Size = new System.Drawing.Size(142, 45);
-            this.trackBar1.TabIndex = 5;
+            this.fromTrack.Location = new System.Drawing.Point(12, 193);
+            this.fromTrack.Name = "fromTrack";
+            this.fromTrack.Size = new System.Drawing.Size(142, 45);
+            this.fromTrack.TabIndex = 5;
+            this.fromTrack.Scroll += new System.EventHandler(this.fromTrack_Scroll);
             // 
-            // trackBar2
+            // ToTrackBar
             // 
-            this.trackBar2.Location = new System.Drawing.Point(195, 193);
-            this.trackBar2.Name = "trackBar2";
-            this.trackBar2.Size = new System.Drawing.Size(120, 45);
-            this.trackBar2.TabIndex = 6;
+            this.ToTrackBar.Location = new System.Drawing.Point(195, 193);
+            this.ToTrackBar.Name = "ToTrackBar";
+            this.ToTrackBar.Size = new System.Drawing.Size(120, 45);
+            this.ToTrackBar.TabIndex = 6;
+            this.ToTrackBar.Scroll += new System.EventHandler(this.ToTrackBar_Scroll);
             // 
             // maxAgeLabel
             // 
@@ -154,6 +159,7 @@
             this.searchButton.TabIndex = 11;
             this.searchButton.Text = "Search!";
             this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // FindMyLove
             // 
@@ -165,8 +171,8 @@
             this.Controls.Add(this.fromRangeChosen);
             this.Controls.Add(this.minAgeLabe);
             this.Controls.Add(this.maxAgeLabel);
-            this.Controls.Add(this.trackBar2);
-            this.Controls.Add(this.trackBar1);
+            this.Controls.Add(this.ToTrackBar);
+            this.Controls.Add(this.fromTrack);
             this.Controls.Add(this.ageRangeLabel);
             this.Controls.Add(this.maleRadioButton);
             this.Controls.Add(this.FemaleRadioButton);
@@ -175,8 +181,8 @@
             this.Name = "FindMyLove";
             this.Text = "FindMyLove";
             ((System.ComponentModel.ISupportInitialize)(this.profilePic)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.trackBar2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fromTrack)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ToTrackBar)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,8 +195,8 @@
         private System.Windows.Forms.RadioButton FemaleRadioButton;
         private System.Windows.Forms.RadioButton maleRadioButton;
         private System.Windows.Forms.Label ageRangeLabel;
-        private System.Windows.Forms.TrackBar trackBar1;
-        private System.Windows.Forms.TrackBar trackBar2;
+        private System.Windows.Forms.TrackBar fromTrack;
+        private System.Windows.Forms.TrackBar ToTrackBar;
         private System.Windows.Forms.Label maxAgeLabel;
         private System.Windows.Forms.Label minAgeLabe;
         private System.Windows.Forms.Label fromRangeChosen;

@@ -1,21 +1,16 @@
-﻿using FacebookWrapper;
-using FacebookWrapper.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System;
 using System.Windows.Forms;
+using FacebookWrapper;
+using FacebookWrapper.ObjectModel;
 
 namespace C18_Ex01_301674560_Raz_305740177
 {
     public partial class FackebookApp : Form
     {
-        User m_LoggedInUser;
-        AppId appId;
+        private User m_LoggedInUser;
+        private AppId appId;
+
+        public User LoggedInUser { get => m_LoggedInUser; set => m_LoggedInUser = value; }
 
         public FackebookApp()
         {
@@ -35,7 +30,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
-                m_LoggedInUser = result.LoggedInUser;
+                LoggedInUser = result.LoggedInUser;
                 fetchUserInfo();
             }
             else
@@ -46,10 +41,10 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private void fetchUserInfo()
         {
-            userPictureBox.LoadAsync(m_LoggedInUser.PictureNormalURL);
-            if (m_LoggedInUser.Posts.Count > 0)
+            userPictureBox.LoadAsync(LoggedInUser.PictureNormalURL);
+            if (LoggedInUser.Posts.Count > 0)
             {
-                textBoxStatus.Text = m_LoggedInUser.Posts[0].Message;
+                textBoxStatus.Text = LoggedInUser.Posts[0].Message;
             }
         }
 
@@ -66,7 +61,7 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             try
             {
-                Status postedStatus = m_LoggedInUser.PostStatus(textBoxStatus.Text);
+                Status postedStatus = LoggedInUser.PostStatus(textBoxStatus.Text);
                 MessageBox.Show("Status Posted! ID: " + postedStatus.Id);
             }
             catch
@@ -80,12 +75,12 @@ namespace C18_Ex01_301674560_Raz_305740177
             listBoxPages.Items.Clear();
             listBoxPages.DisplayMember = "Name";
 
-            foreach (Page page in m_LoggedInUser.LikedPages)
+            foreach (Page page in LoggedInUser.LikedPages)
             {
                 listBoxPages.Items.Add(page);
             }
 
-            if (m_LoggedInUser.LikedPages.Count == 0)
+            if (LoggedInUser.LikedPages.Count == 0)
             {
                 MessageBox.Show("No liked pages to retrieve :(");
             }
@@ -113,12 +108,12 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             listBoxEvents.Items.Clear();
             listBoxEvents.DisplayMember = "Name";
-            foreach (Event fbEvent in m_LoggedInUser.Events)
+            foreach (Event fbEvent in LoggedInUser.Events)
             {
                 listBoxEvents.Items.Add(fbEvent);
             }
 
-            if (m_LoggedInUser.Events.Count == 0)
+            if (LoggedInUser.Events.Count == 0)
             {
                 MessageBox.Show("No Events to retrieve :(");
             }
@@ -131,7 +126,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private void fetchPosts()
         {
-            foreach (Post post in m_LoggedInUser.Posts)
+            foreach (Post post in LoggedInUser.Posts)
             {
                 if (post.Message != null)
                 {
@@ -147,7 +142,7 @@ namespace C18_Ex01_301674560_Raz_305740177
                 }
             }
 
-            if (m_LoggedInUser.Posts.Count == 0)
+            if (LoggedInUser.Posts.Count == 0)
             {
                 MessageBox.Show("No Posts to retrieve :(");
             }
@@ -162,13 +157,13 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             listBoxFriends.Items.Clear();
             listBoxFriends.DisplayMember = "Name";
-            foreach (User friend in m_LoggedInUser.Friends)
+            foreach (User friend in LoggedInUser.Friends)
             {
                 listBoxFriends.Items.Add(friend);
                 friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
             }
 
-            if (m_LoggedInUser.Friends.Count == 0)
+            if (LoggedInUser.Friends.Count == 0)
             {
                 MessageBox.Show("No Friends to retrieve :(");
             }
@@ -176,7 +171,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private void buttonFindMyLove_Click(object sender, EventArgs e)
         {
-            new FindMyLove(m_LoggedInUser).Show();
+            new FindMyLove(LoggedInUser).Show();
         }
     }
 }
