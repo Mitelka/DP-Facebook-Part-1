@@ -26,7 +26,7 @@ namespace C18_Ex01_301674560_Raz_305740177
         private void loginAndInit()
         {
             CrateAppID();
-            LoginResult result = FacebookService.Login(appId.Value, "email");
+            LoginResult result = FacebookService.Login(appId.Value, "email", "user_likes", "user_photos", "user_posts", "user_birthday", "user_events", "user_friends", "public_profile");
 
             if (!string.IsNullOrEmpty(result.AccessToken))
             {
@@ -74,15 +74,21 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             listBoxPages.Items.Clear();
             listBoxPages.DisplayMember = "Name";
-
-            foreach (Page page in LoggedInUser.LikedPages)
+            try
             {
-                listBoxPages.Items.Add(page);
+                foreach (Page page in LoggedInUser.LikedPages)
+                {
+                    listBoxPages.Items.Add(page);
+                }
+
+                if (LoggedInUser.LikedPages.Count == 0)
+                {
+                    MessageBox.Show("No liked pages to retrieve :(");
+                }
             }
-
-            if (LoggedInUser.LikedPages.Count == 0)
+            catch
             {
-                MessageBox.Show("No liked pages to retrieve :(");
+                MessageBox.Show("FaceBook Authorisation Issue");
             }
         }
 
@@ -138,7 +144,7 @@ namespace C18_Ex01_301674560_Raz_305740177
                 }
                 else
                 {
-                    listBoxPosts.Items.Add(string.Format("[{0}]", post.Type));
+                    listBoxPosts.Items.Add(string.Format("[{0}]", post.Name));
                 }
             }
 
