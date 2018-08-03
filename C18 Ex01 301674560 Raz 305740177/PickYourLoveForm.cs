@@ -7,7 +7,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 {
     public partial class PickYourLoveForm : Form
     {
-        private List<User> m_Matches;
+        private readonly List<User> m_Matches;
 
         public PickYourLoveForm(List<User> i_Matches)
         {
@@ -24,7 +24,7 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             matchesListbox.Items.Clear();
             matchesListbox.DisplayMember = "Name";
-            foreach (User match in m_Matches)
+            foreach (var match in m_Matches)
             {
                 matchesListbox.Items.Add(match);
             }
@@ -34,7 +34,7 @@ namespace C18_Ex01_301674560_Raz_305740177
         {
             if (matchesListbox.SelectedItem != null)
             {
-                User selcetedUser = matchesListbox.SelectedItem as User;
+                var selcetedUser = matchesListbox.SelectedItem as User;
                 profilePic.ImageLocation = selcetedUser.PictureNormalURL;
                 profilePic.Load();
             }

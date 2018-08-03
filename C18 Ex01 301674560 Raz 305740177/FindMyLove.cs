@@ -10,7 +10,6 @@ namespace C18_Ex01_301674560_Raz_305740177
     public partial class FindMyLove : Form
     {
         private eGender m_Gender;
-        private User m_LoggedInUser;
 
         public FindMyLove(User i_LoggedInUser)
         {
@@ -23,7 +22,7 @@ namespace C18_Ex01_301674560_Raz_305740177
             ToTrackBar.Maximum = 99;
         }
 
-        public User LoggedInUser { get => m_LoggedInUser; set => m_LoggedInUser = value; }
+        public User LoggedInUser { get; set; }
 
         private void showProfilePic()
         {
@@ -53,15 +52,15 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private void searchButton_Click(object sender, EventArgs e)
         {
-            bool isAgeValid = checkAgeValidation();
-            List<User> matches = new List<User>();
+            var isAgeValid = checkAgeValidation();
+            var matches = new List<User>();
             if (!isAgeValid)
             {
                 MessageBox.Show("Please choose a valid range age!");
             }
             else
             {
-                foreach (User friend in m_LoggedInUser.Friends)
+                foreach (var friend in LoggedInUser.Friends)
                 {
                     friend.ReFetch(DynamicWrapper.eLoadOptions.Full);
                     if (checkIfMatch(friend))
@@ -83,7 +82,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private bool checkIfMatch(User i_User)
         {
-            bool isMatch = true;
+            var isMatch = true;
             if (i_User.Gender != m_Gender)
             {
                 isMatch = false;
@@ -91,10 +90,10 @@ namespace C18_Ex01_301674560_Raz_305740177
 
             if (isMatch)
             {
-                DateTime today = DateTime.Today;
-                CultureInfo cultureDateTime = new CultureInfo("en-US");
-                DateTime birthdayUser = Convert.ToDateTime(i_User.Birthday, cultureDateTime);
-                int age = today.Year - birthdayUser.Year;
+                var today = DateTime.Today;
+                var cultureDateTime = new CultureInfo("en-US");
+                var birthdayUser = Convert.ToDateTime(i_User.Birthday, cultureDateTime);
+                var age = today.Year - birthdayUser.Year;
                 today.AddYears(-age);
                 if (DateTime.Compare(birthdayUser, today) > 0)
                 {
@@ -112,7 +111,7 @@ namespace C18_Ex01_301674560_Raz_305740177
 
         private bool checkAgeValidation()
         {
-            bool isValid = false;
+            var isValid = false;
             if (fromTrack.Value <= ToTrackBar.Value)
             {
                 isValid = true;
